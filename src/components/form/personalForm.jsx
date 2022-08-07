@@ -1,26 +1,33 @@
-const Personal = (props) => {
+const PersonalForm = (props) => {
   return (
-    <div className="flex-row ">
-      <input
-        className="border-2 border-cyan-500"
-        onChange={props.change}
-        placeholder="name"
-        id="name"
-      ></input>
-      <input
-        className="border-2 border-cyan-500"
-        onChange={props.change}
-        placeholder="email"
-        id="email"
-      ></input>
-      <input
-        className="border-2 border-cyan-500"
-        onChange={props.change}
-        placeholder="phoneNo"
-        id="phoneNo"
-      ></input>
+    <div>
+      <h1 className="title">Personal Info</h1>
+      <div>
+        <input
+          className="input"
+          onChange={props.change}
+          placeholder="name"
+          id="name"
+        ></input>
+      </div>
+      <div>
+        <input
+          className="input"
+          onChange={props.change}
+          placeholder="email"
+          id="email"
+        ></input>
+      </div>
+      <div>
+        <input
+          className="input"
+          onChange={props.change}
+          placeholder="phoneNo"
+          id="phoneNo"
+        ></input>
+      </div>
     </div>
   );
 };
 
-export { Personal };
+export { PersonalForm };
