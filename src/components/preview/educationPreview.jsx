@@ -1,14 +1,28 @@
 const EducationPreview = (props) => {
   return (
     <div>
-      <li className="" key={props.id}>
-        <label className="block">{props.universityName}</label>
-        <label className="block">{props.city}</label>
-        <label className="block">{props.degree}</label>
-        <label className="block">{props.subject}</label>
-        <label className="block">{props.startDate}</label>
-        <label className="block">{props.endDate}</label>
-      </li>
+      <div className="flex p-2 text-lg font-semibold" key={props.id}>
+        <div className="flex-1 flex gap-32">
+          <div>
+            <div className="">{props.universityName},</div>
+            <div className="">{props.city}.</div>
+          </div>
+          <div>
+            <div className="">
+              Degree:<span className=" ml-2 font-light">{props.degree}</span>
+            </div>
+            <div className="">
+              Subject:<span className="ml-2 font-light">{props.subject}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-3">
+          <div className="w-9 min-w-fit">{props.startDate}</div>
+          <div>-</div>
+          <div className="w-9 min-w-fit">{props.endDate}</div>
+        </div>
+      </div>
     </div>
   );
 };

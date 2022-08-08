@@ -3,6 +3,7 @@ const EducationForm = (props) => {
 
   return (
     <div>
+      <h1 className="title">Education</h1>
       {educationArr.map((obj, index) => {
         return (
           <li className="list-none" key={obj.id} data-id={obj.id}>
@@ -72,9 +73,18 @@ const EducationForm = (props) => {
                 id="endDate"
               ></input>
             </div>
-            <button onClick={(e) => props.addClick(e)}>add</button>
+            <button
+              className="btn  border-green-500 text-green-500 hover:bg-green-500"
+              onClick={(e) => props.addClick(e)}
+            >
+              add
+            </button>
             {educationArr.length > 1 ? (
-              <button data-id={obj.id} onClick={(e) => props.deleteClick(e)}>
+              <button
+                className="btn  text-red-500 border-red-500 hover:bg-red-500"
+                data-id={obj.id}
+                onClick={(e) => props.deleteClick(e)}
+              >
                 delete
               </button>
             ) : (

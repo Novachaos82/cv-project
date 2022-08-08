@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <div className="flex items-center justify-center bg-black text-white p-4 bottom-0 absolute w-screen">
+      <div className="flex items-center justify-center bg-black text-white p-4 bottom-0 w-full">
         Novachaos
         <a href="https://github.com/Novachaos82" className="inline-block">
           <svg

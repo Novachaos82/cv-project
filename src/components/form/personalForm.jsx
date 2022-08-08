@@ -26,6 +26,14 @@ const PersonalForm = (props) => {
           id="phoneNo"
         ></input>
       </div>
+      <div>
+        <input
+          className="input"
+          onChange={props.change}
+          placeholder="description"
+          id="description"
+        ></input>
+      </div>
     </div>
   );
 };

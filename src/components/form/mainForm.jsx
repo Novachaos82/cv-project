@@ -18,6 +18,7 @@ class MainForm extends Component {
         name: "",
         email: "",
         phoneNo: "",
+        description: "",
       },
 
       workExperience: {
@@ -75,6 +76,7 @@ class MainForm extends Component {
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         phoneNo: document.getElementById("phoneNo").value,
+        description: document.getElementById("description").value,
       },
     });
     console.log(e.target.value);
@@ -157,9 +159,9 @@ class MainForm extends Component {
         <Header />
         <div
           id="mainContent"
-          className="flex space-x-3 justify-center items-center"
+          className="grid grid-cols-1  space-y-8 justify-center  mx-auto my-0 p-24 lg:grid-cols-[800px_minmax(600px,_600px)] md:gap-4 md:space-y-0 w-full bg-slate-800 overflow-y-scroll"
         >
-          <div className="flex-row rounded-md bg-gray-300 h-fit w-fit p-4  justify-center items-center space-y-4">
+          <div className="flex-row rounded-md bg-custom-black  w-full p-4  justify-center items-center text-white">
             <div className="">
               <PersonalForm change={this.peronalInfoHandler} />
             </div>
@@ -172,6 +174,7 @@ class MainForm extends Component {
                 deleteClick={this.workExperienceDeleteHandler}
               />
             </div>
+
             <EducationForm
               change={this.educationHandler}
               educationArr={this.state.educationArray}
@@ -180,15 +183,16 @@ class MainForm extends Component {
               deleteClick={this.educationDeleteHandler}
             />
           </div>
-          <div className="fields">
+          <div className="flex-row rounded-md bg-gray-300 h-fit w-full p-8  justify-center items-center ">
             <div>
-              <h1 className="title">Personal experience</h1>
               <PersonalPreview
                 naam={this.state.personalData.name}
                 email={this.state.personalData.email}
                 phoneNo={this.state.personalData.phoneNo}
+                description={this.state.personalData.description}
               />
 
+              <div className="description-heading">Experience</div>
               {this.state.workExperienceArray.map((obj, index) => {
                 return (
                   <div key={index}>
@@ -204,6 +208,7 @@ class MainForm extends Component {
                 );
               })}
 
+              <div className="description-heading">Education</div>
               {this.state.educationArray.map((obj, index) => {
                 return (
                   <div key={index}>
