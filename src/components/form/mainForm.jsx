@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { PersonalForm } from "./personalForm";
-import { RenderDOM } from "./mainPreview";
+import { RenderDOM } from "../preview/mainPreview";
 import { Header } from "./header";
 import { Footer } from "./footer";
 import uniqid from "uniqid";
 import { WorkExperienceForm } from "./workExperienceForm";
+import { ExperiencePreview } from "../preview/experiencesPreview";
+import { PersonalPreview } from "../preview/personalPreview";
 
 class MainForm extends Component {
   constructor() {
@@ -18,17 +20,17 @@ class MainForm extends Component {
       },
 
       workExperience: {
-        company: "dw",
-        position: "aw",
-        startDate: "de",
-        endDate: "fr",
-        description: "gr",
+        company: "",
+        position: "",
+        startDate: "",
+        endDate: "",
+        description: "",
         id: uniqid(),
       },
 
       workExperienceArray: [
         {
-          company: "dsda",
+          company: "",
           position: "",
           startDate: "",
           endDate: "",
@@ -54,11 +56,13 @@ class MainForm extends Component {
     console.log(e.target.value);
   };
 
-  workExperienceHandler = (index, e, name) => {
-    let name1 = e.target.name;
+  workExperienceHandler = (index, e) => {
+    console.log(e.target.id);
+    console.log(e.target.value);
     const newValues = [...this.state.workExperienceArray];
-    newValues[index].company.value = e.target.value;
+    newValues[index][e.target.id] = e.target.value;
     this.setState({ workExperienceArray: newValues });
+    console.log(this.state.workExperienceArray);
   };
 
   workExperienceAddHandler = (e) => {
@@ -96,25 +100,30 @@ class MainForm extends Component {
                 experienceArr={this.state.workExperienceArray}
                 workExperienceDetails={this.state.workExperience}
               />
-              {/*<button onClick={this.workExperienceAddHandler} />*/}
+              <button onClick={this.workExperienceAddHandler}>add</button>
             </div>
           </div>
           <div className="fields">
             <div>
-              <h1 className="title">Personal Info</h1>
-              <RenderDOM
-                defaultText="name"
-                text={this.state.personalData.name}
+              <h1 className="title">Personal experience</h1>
+              <PersonalPreview
+                naam={this.state.personalData.name}
+                email={this.state.personalData.email}
+                phoneNo={this.state.personalData.phoneNo}
               />
-              <RenderDOM
-                className="text-yellow-400"
-                defaultText="email"
-                text={this.state.personalData.email}
-              />
-              <RenderDOM
-                defaultText="phoneNo"
-                text={this.state.personalData.phoneNo}
-              />
+
+              {this.state.workExperienceArray.map((obj, index) => {
+                return (
+                  <ExperiencePreview
+                    company={obj.company}
+                    position={obj.position}
+                    startDate={obj.startDate}
+                    endDate={obj.endDate}
+                    description={obj.description}
+                    id={index}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

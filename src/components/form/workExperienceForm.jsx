@@ -3,57 +3,66 @@ const WorkExperienceForm = (props) => {
   console.log();
   return (
     <div>
-      {experienceArr.map((valx, index) => {
+      {experienceArr.map((obj, index) => {
         return (
-          <li key={props.workExperienceDetails.id}>
+          <li className="list-none" key={obj.id}>
             <div>
               <input
-                name="company"
                 className="input"
                 onChange={(e) => {
                   props.change(index, e);
                 }}
-                value={valx.company}
+                value={obj.company}
                 placeholder="companyInput"
-                id="companyInput"
+                id="company"
+              ></input>
+            </div>
+            <div>
+              <input
+                className="input"
+                onChange={(e) => {
+                  props.change(index, e);
+                }}
+                value={obj.position}
+                placeholder="positionInput"
+                id="position"
+              ></input>
+            </div>
+            <div>
+              <input
+                className="input"
+                onChange={(e) => {
+                  props.change(index, e);
+                }}
+                value={obj.startDate}
+                placeholder="startDateInput"
+                id="startDate"
+              ></input>
+            </div>
+            <div>
+              <input
+                className="input"
+                onChange={(e) => {
+                  props.change(index, e);
+                }}
+                value={obj.endDate}
+                placeholder="endDateInput"
+                id="endDate"
+              ></input>
+            </div>
+            <div>
+              <input
+                className="input"
+                onChange={(e) => {
+                  props.change(index, e);
+                }}
+                value={obj.description}
+                placeholder="descriptionInput"
+                id="description"
               ></input>
             </div>
           </li>
         );
-        {
-          /*<div>
-          <input
-            className="input"
-            onChange={props.change}
-            placeholder="positionInput"
-            id="positionInput"
-          ></input>
-        </div>
-        <div>
-          <input
-            className="input"
-            onChange={props.change}
-            placeholder="startDateInput"
-            id="startDateInput"
-          ></input>
-        </div>
-        <div>
-          <input
-            className="input"
-            onChange={props.change}
-            placeholder="endDateInput"
-            id="endDateInput"
-          ></input>
-        </div>
-        <div>
-          <input
-            className="input"
-            onChange={props.change}
-            placeholder="descriptionInput"
-            id="descriptionInput"
-          ></input>
-        </div>*/
-        }
       })}
     </div>
   );
