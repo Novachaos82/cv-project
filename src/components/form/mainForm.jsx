@@ -7,7 +7,8 @@ import uniqid from "uniqid";
 import { WorkExperienceForm } from "./workExperienceForm";
 import { ExperiencePreview } from "../preview/experiencesPreview";
 import { PersonalPreview } from "../preview/personalPreview";
-
+import { EducationForm } from "./educationForm";
+import { EducationPreview } from "../preview/educationPreview";
 class MainForm extends Component {
   constructor() {
     super();
@@ -38,6 +39,27 @@ class MainForm extends Component {
           id: uniqid(),
         },
       ],
+      education: {
+        universityName: "",
+        city: "",
+        degree: "",
+        subject: "",
+        startDate: "",
+        endDate: "",
+        id: uniqid(),
+      },
+
+      educationArray: [
+        {
+          universityName: "",
+          city: "",
+          degree: "",
+          subject: "",
+          startDate: "",
+          endDate: "",
+          id: uniqid(),
+        },
+      ],
     };
 
     this.peronalInfoHandler = this.peronalInfoHandler.bind(this);
@@ -59,12 +81,21 @@ class MainForm extends Component {
   };
 
   workExperienceHandler = (index, e) => {
-    console.log(e.target.id);
-    console.log(e.target.value);
+    //console.log(e.target.id);
+    //console.log(e.target.value);
     const newValues = [...this.state.workExperienceArray];
     newValues[index][e.target.id] = e.target.value;
     this.setState({ workExperienceArray: newValues });
     console.log(this.state.workExperienceArray);
+  };
+
+  educationHandler = (index, e) => {
+    //console.log(e.target.id);
+    //console.log(e.target.value);
+    const newValues = [...this.state.educationArray];
+    newValues[index][e.target.id] = e.target.value;
+    this.setState({ educationArray: newValues });
+    console.log(this.state.educationArray);
   };
 
   workExperienceAddHandler = (e) => {
@@ -84,10 +115,36 @@ class MainForm extends Component {
     });
   };
 
+  educationAddHandler = (e) => {
+    e.preventDefault();
+    this.setState({
+      educationArray: this.state.educationArray.concat(this.state.education),
+      education: {
+        universityName: "",
+        city: "",
+        degree: "",
+        subject: "",
+        startDate: "",
+        endDate: "",
+        id: uniqid(),
+      },
+    });
+  };
+
   workExperienceDeleteHandler = (e) => {
     const dataID = e.target.getAttribute("data-id");
     this.setState({
       workExperienceArray: this.state.workExperienceArray.filter(
+        (task) => task.id !== dataID
+      ),
+    });
+    console.log("delete" + e.target.getAttribute("data-id") + "ffffffffff");
+  };
+
+  educationDeleteHandler = (e) => {
+    const dataID = e.target.getAttribute("data-id");
+    this.setState({
+      educationArray: this.state.educationArray.filter(
         (task) => task.id !== dataID
       ),
     });
@@ -115,6 +172,13 @@ class MainForm extends Component {
                 deleteClick={this.workExperienceDeleteHandler}
               />
             </div>
+            <EducationForm
+              change={this.educationHandler}
+              educationArr={this.state.educationArray}
+              workExperienceDetails={this.state.education}
+              addClick={this.educationAddHandler}
+              deleteClick={this.educationDeleteHandler}
+            />
           </div>
           <div className="fields">
             <div>
@@ -134,6 +198,22 @@ class MainForm extends Component {
                       startDate={obj.startDate}
                       endDate={obj.endDate}
                       description={obj.description}
+                      id={obj.id}
+                    />
+                  </div>
+                );
+              })}
+
+              {this.state.educationArray.map((obj, index) => {
+                return (
+                  <div key={index}>
+                    <EducationPreview
+                      universityName={obj.universityName}
+                      city={obj.city}
+                      degree={obj.degree}
+                      subject={obj.subject}
+                      startDate={obj.startDate}
+                      endDate={obj.endDate}
                       id={obj.id}
                     />
                   </div>
