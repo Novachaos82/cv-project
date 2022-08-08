@@ -1,11 +1,10 @@
 const WorkExperienceForm = (props) => {
   const { experienceArr } = props;
-  console.log();
   return (
     <div>
       {experienceArr.map((obj, index) => {
         return (
-          <li className="list-none" key={obj.id}>
+          <li className="list-none" key={obj.id} data-id={obj.id}>
             <div>
               <input
                 className="input"
@@ -61,6 +60,14 @@ const WorkExperienceForm = (props) => {
                 id="description"
               ></input>
             </div>
+            <button onClick={(e) => props.addClick(e)}>add</button>
+            {experienceArr.length > 1 ? (
+              <button data-id={obj.id} onClick={(e) => props.deleteClick(e)}>
+                delete
+              </button>
+            ) : (
+              ""
+            )}
           </li>
         );
       })}

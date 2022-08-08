@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { PersonalForm } from "./personalForm";
-import { RenderDOM } from "../preview/mainPreview";
+
 import { Header } from "./header";
 import { Footer } from "./footer";
 import uniqid from "uniqid";
@@ -43,6 +43,8 @@ class MainForm extends Component {
     this.peronalInfoHandler = this.peronalInfoHandler.bind(this);
     this.workExperienceHandler = this.workExperienceHandler.bind(this);
     this.workExperienceAddHandler = this.workExperienceAddHandler.bind(this);
+    this.workExperienceDeleteHandler =
+      this.workExperienceDeleteHandler.bind(this);
   }
 
   peronalInfoHandler = (e) => {
@@ -82,6 +84,16 @@ class MainForm extends Component {
     });
   };
 
+  workExperienceDeleteHandler = (e) => {
+    const dataID = e.target.getAttribute("data-id");
+    this.setState({
+      workExperienceArray: this.state.workExperienceArray.filter(
+        (task) => task.id !== dataID
+      ),
+    });
+    console.log("delete" + e.target.getAttribute("data-id") + "ffffffffff");
+  };
+
   render() {
     return (
       <div>
@@ -99,8 +111,9 @@ class MainForm extends Component {
                 change={this.workExperienceHandler}
                 experienceArr={this.state.workExperienceArray}
                 workExperienceDetails={this.state.workExperience}
+                addClick={this.workExperienceAddHandler}
+                deleteClick={this.workExperienceDeleteHandler}
               />
-              <button onClick={this.workExperienceAddHandler}>add</button>
             </div>
           </div>
           <div className="fields">
@@ -114,14 +127,16 @@ class MainForm extends Component {
 
               {this.state.workExperienceArray.map((obj, index) => {
                 return (
-                  <ExperiencePreview
-                    company={obj.company}
-                    position={obj.position}
-                    startDate={obj.startDate}
-                    endDate={obj.endDate}
-                    description={obj.description}
-                    id={index}
-                  />
+                  <div key={index}>
+                    <ExperiencePreview
+                      company={obj.company}
+                      position={obj.position}
+                      startDate={obj.startDate}
+                      endDate={obj.endDate}
+                      description={obj.description}
+                      id={obj.id}
+                    />
+                  </div>
                 );
               })}
             </div>
