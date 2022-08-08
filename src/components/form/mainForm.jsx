@@ -68,6 +68,7 @@ class MainForm extends Component {
     this.workExperienceAddHandler = this.workExperienceAddHandler.bind(this);
     this.workExperienceDeleteHandler =
       this.workExperienceDeleteHandler.bind(this);
+    this.loadExample = this.loadExample.bind(this);
   }
 
   peronalInfoHandler = (e) => {
@@ -153,10 +154,55 @@ class MainForm extends Component {
     console.log("delete" + e.target.getAttribute("data-id") + "ffffffffff");
   };
 
+  loadExample = (e) => {
+    console.log("click");
+    e.preventDefault();
+    this.setState({
+      personalData: {
+        name: (document.getElementById("name").value = "Lena Shelton "),
+        email: (document.getElementById("email").value = "Qmab555@gmail.com"),
+        phoneNo: (document.getElementById("phoneNo").value = "940-342-4919"),
+        description: (document.getElementById("description").value =
+          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem illum velit, aliquid inventore beatae cum voluptates veniam autem perferendis nesciunt quas ipsum necessitatibus quis iste aliquam amet! Id, ad illo."),
+      },
+
+      workExperienceArray: [
+        {
+          company: "Microsoft",
+          position: "Software Engineer",
+          startDate: "2019",
+          endDate: "2020",
+          description:
+            " Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, pariatur consectetur nobis est voluptate delectus, voluptatum rerum tenetur facere nemo deleniti? Veniam rem fugit voluptatum, nesciunt molestiae quidem eveniet, obcaecati magnam esse voluptate, quisquam at mollitia qui blanditiis rerum laboriosam? ",
+          id: uniqid(),
+        },
+      ],
+
+      educationArray: [
+        {
+          universityName: "Boston College",
+          city: "Milan",
+          degree: "B.Tech",
+          subject: "CSE",
+          startDate: "2017",
+          endDate: "2019",
+          id: uniqid(),
+        },
+      ],
+    });
+  };
+
+  reload = () => {
+    window.location.reload();
+  };
+
   render() {
     return (
       <div>
         <Header />
+
+        {/*the form */}
+
         <div
           id="mainContent"
           className="grid grid-cols-1  space-y-8 justify-center  mx-auto my-0 p-24 lg:grid-cols-[800px_minmax(600px,_600px)] md:gap-4 md:space-y-0 w-full bg-slate-800 overflow-y-scroll"
@@ -174,15 +220,34 @@ class MainForm extends Component {
                 deleteClick={this.workExperienceDeleteHandler}
               />
             </div>
-
-            <EducationForm
-              change={this.educationHandler}
-              educationArr={this.state.educationArray}
-              workExperienceDetails={this.state.education}
-              addClick={this.educationAddHandler}
-              deleteClick={this.educationDeleteHandler}
-            />
+            <div>
+              <EducationForm
+                change={this.educationHandler}
+                educationArr={this.state.educationArray}
+                workExperienceDetails={this.state.education}
+                addClick={this.educationAddHandler}
+                deleteClick={this.educationDeleteHandler}
+              />
+            </div>
+            <div className="flex flex-col gap-4 justify-center items-center">
+              <div>
+                <button
+                  className="misc-btn bg-green-500"
+                  onClick={this.loadExample}
+                >
+                  Load Example
+                </button>
+              </div>
+              <div>
+                <button className="misc-btn bg-red-500" onClick={this.reload}>
+                  Reset
+                </button>
+              </div>
+            </div>
           </div>
+
+          {/*CV PREVIEW*/}
+
           <div className="flex-row rounded-md bg-gray-300 h-fit w-full p-8  justify-center items-center ">
             <div>
               <PersonalPreview

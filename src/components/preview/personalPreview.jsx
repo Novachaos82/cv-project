@@ -21,17 +21,7 @@ const PersonalPreview = (props) => {
         </div>
       </div>
 
-      <div className=" py-2 px-2 text-gray-600">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-        cupiditate itaque ipsam minus eveniet, assumenda ullam, quidem, officia
-        aut fuga molestias excepturi sit unde veniam quasi at nesciunt. Vitae
-        saepe quae veniam est odio a. Omnis odio consectetur similique voluptate
-        laboriosam, et minima quasi labore perspiciatis tenetur dolores ut
-        molestiae, quas, fugiat totam expedita non tempore pariatur magnam
-        commodi praesentium ducimus distinctio deleniti rerum! Ipsam explicabo
-        quae tempore suscipit saepe, veritatis ad aliquam velit nobis facilis.
-        Cum veritatis molestias aspernatur.{props.description}
-      </div>
+      <div className=" py-2 px-2 text-gray-600">{props.description}</div>
     </div>
   );
 };

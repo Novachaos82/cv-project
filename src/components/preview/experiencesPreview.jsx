@@ -15,19 +15,8 @@ const ExperiencePreview = (props) => {
             </div>
           </div>
 
-          <div className="mt-4 text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            quis fugiat in saepe deleniti accusamus accusantium alias a
-            consequuntur! Porro repellendus ea doloribus ducimus molestiae harum
-            perferendis ipsum. Obcaecati maxime ullam officia commodi similique
-            dolore est ab veritatis delectus temporibus natus assumenda, saepe
-            iure architecto a nihil tempore perferendis mollitia reprehenderit
-            quaerat tempora. Corporis numquam modi ipsa labore officiis quia
-            consequatur cumque ea id iusto corrupti, odio autem architecto
-            doloribus amet aperiam similique saepe rem et veritatis voluptas
-            molestias inventore. Cumque accusamus doloremque in est nostrum
-            eveniet ea nulla a.
-            {props.description}
+          <div className="flex flex-col mt-4 text-gray-600 ">
+            <span>{props.description}</span>
           </div>
         </div>
       </div>
