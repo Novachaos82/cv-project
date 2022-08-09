@@ -9,6 +9,8 @@ import { ExperiencePreview } from "../preview/experiencesPreview";
 import { PersonalPreview } from "../preview/personalPreview";
 import { EducationForm } from "./educationForm";
 import { EducationPreview } from "../preview/educationPreview";
+
+import ReactToPrint from "react-to-print";
 class MainForm extends Component {
   constructor() {
     super();
@@ -199,10 +201,9 @@ class MainForm extends Component {
   render() {
     return (
       <div>
-        <Header />
-
-        {/*the form */}
-
+        <div>
+          <Header />
+        </div>
         <div
           id="mainContent"
           className="grid grid-cols-1  space-y-8 justify-center  mx-auto my-0 p-24 lg:grid-cols-[800px_minmax(600px,_600px)] md:gap-4 md:space-y-0 w-full bg-slate-800 overflow-y-scroll"
@@ -243,12 +244,25 @@ class MainForm extends Component {
                   Reset
                 </button>
               </div>
+              <div>
+                <ReactToPrint
+                  trigger={() => {
+                    return <button className="misc-btn">Print</button>;
+                  }}
+                  content={() => this.componentRef}
+                  documentTitle="CV"
+                  pageStyle="print"
+                />
+              </div>
             </div>
           </div>
 
           {/*CV PREVIEW*/}
 
-          <div className="flex-row rounded-md bg-gray-300 h-fit w-full p-8  justify-center items-center ">
+          <div
+            className="flex-row h-fit rounded-md bg-gray-300 lg:h-3/5  w-full p-8  justify-center items-center "
+            ref={(el) => (this.componentRef = el)}
+          >
             <div>
               <PersonalPreview
                 naam={this.state.personalData.name}
