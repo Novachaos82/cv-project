@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/gh-pages/static/css/main.cc49ec36.css",
-    "main.js": "/gh-pages/static/js/main.452a6a1c.js",
-    "index.html": "/gh-pages/index.html",
-    "main.cc49ec36.css.map": "/gh-pages/static/css/main.cc49ec36.css.map",
-    "main.452a6a1c.js.map": "/gh-pages/static/js/main.452a6a1c.js.map"
+    "main.css": "/cv-project/static/css/main.cc49ec36.css",
+    "main.js": "/cv-project/static/js/main.452a6a1c.js",
+    "index.html": "/cv-project/index.html",
+    "main.cc49ec36.css.map": "/cv-project/static/css/main.cc49ec36.css.map",
+    "main.452a6a1c.js.map": "/cv-project/static/js/main.452a6a1c.js.map"
   },
   "entrypoints": [
     "static/css/main.cc49ec36.css",
