@@ -13,7 +13,7 @@ const WorkExperienceForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.company}
-                placeholder="companyInput"
+                placeholder="Company Name"
                 id="company"
               ></input>
             </div>
@@ -24,7 +24,7 @@ const WorkExperienceForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.position}
-                placeholder="positionInput"
+                placeholder="Position"
                 id="position"
               ></input>
             </div>
@@ -35,7 +35,7 @@ const WorkExperienceForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.startDate}
-                placeholder="startDateInput"
+                placeholder="Start-Date"
                 id="startDate"
               ></input>
             </div>
@@ -46,7 +46,7 @@ const WorkExperienceForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.endDate}
-                placeholder="endDateInput"
+                placeholder="End-Date"
                 id="endDate"
               ></input>
             </div>
@@ -57,7 +57,7 @@ const WorkExperienceForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.description}
-                placeholder="descriptionInput"
+                placeholder="Description"
                 id="description"
               ></input>
             </div>

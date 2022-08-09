@@ -6,7 +6,7 @@ const PersonalForm = (props) => {
         <input
           className="input"
           onChange={props.change}
-          placeholder="name"
+          placeholder="Name"
           id="name"
         ></input>
       </div>
@@ -14,7 +14,7 @@ const PersonalForm = (props) => {
         <input
           className="input"
           onChange={props.change}
-          placeholder="email"
+          placeholder="Email"
           id="email"
         ></input>
       </div>
@@ -30,7 +30,7 @@ const PersonalForm = (props) => {
         <input
           className="input"
           onChange={props.change}
-          placeholder="description"
+          placeholder="About"
           id="description"
         ></input>
       </div>

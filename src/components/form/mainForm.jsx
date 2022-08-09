@@ -247,7 +247,9 @@ class MainForm extends Component {
               <div>
                 <ReactToPrint
                   trigger={() => {
-                    return <button className="misc-btn">Print</button>;
+                    return (
+                      <button className="misc-btn bg-teal-700">Print</button>
+                    );
                   }}
                   content={() => this.componentRef}
                   documentTitle="CV"

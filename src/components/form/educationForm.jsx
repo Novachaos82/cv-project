@@ -14,7 +14,7 @@ const EducationForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.universityName}
-                placeholder="universityNameInput"
+                placeholder="University-Name"
                 id="universityName"
               ></input>
             </div>
@@ -25,7 +25,7 @@ const EducationForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.city}
-                placeholder="cityInput"
+                placeholder="City"
                 id="city"
               ></input>
             </div>
@@ -36,7 +36,7 @@ const EducationForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.degree}
-                placeholder="degreeInput"
+                placeholder="Degree"
                 id="degree"
               ></input>
             </div>
@@ -47,7 +47,7 @@ const EducationForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.subject}
-                placeholder="subjectInput"
+                placeholder="Subject"
                 id="subject"
               ></input>
             </div>
@@ -58,7 +58,7 @@ const EducationForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.startDate}
-                placeholder="startDateInput"
+                placeholder="Start-Date"
                 id="startDate"
               ></input>
             </div>
@@ -69,7 +69,7 @@ const EducationForm = (props) => {
                   props.change(index, e);
                 }}
                 value={obj.endDate}
-                placeholder="endDateInput"
+                placeholder="End-Date"
                 id="endDate"
               ></input>
             </div>
