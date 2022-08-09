@@ -260,7 +260,7 @@ class MainForm extends Component {
           {/*CV PREVIEW*/}
 
           <div
-            className="flex-row h-fit rounded-md bg-gray-300 lg:h-3/5  w-full p-8  justify-center items-center "
+            className="flex-row h-fit rounded-md bg-gray-300 w-full p-8  justify-center items-center "
             ref={(el) => (this.componentRef = el)}
           >
             <div>
