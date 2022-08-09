@@ -1,5 +1,7 @@
 # CV Builder
 
+#### [Live Preview](https://novachaos82.github.io/cv-project/)👈
+
 - ##### A site to build CV Resume and print them.
 - ##### From The Odin Project's [curriculum](https://www.theodinproject.com/dashboard).
 
